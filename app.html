@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="checkbox" id="meuCheckbox" name="meuCheckbox" value="Vermelho"> vermelho
+        <input type="text" name="" class="text" id="">
+<script>
+// Captura o elemento checkbox
+const checkbox = document.querySelector('#meuCheckbox');
+
+checkbox.addEventListener('change', ()=>{
+    if(checkbox.checked){
+        console.log(checkbox.value)
+        document.querySelector('.text').value = checkbox.value
+    }else{
+        console.log('not checked')
+    }
+})
+
+
+
+
+</script>
+
+    </body>
+    </html>
