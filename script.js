@@ -13,7 +13,7 @@ const hourly = document.getElementById('hourly')
 
 const boxLoad = document.querySelector(".boxLoad");
 
-const apiKey = "18bf11075fa4363c70ff57c435285e27";
+
 
 document.addEventListener("keydown", (e) => {
   if (e.key == "Enter") {
@@ -22,11 +22,19 @@ document.addEventListener("keydown", (e) => {
 });
 
 function getDataAPI() {
+
   if (city.value) {
     if (city.value != undefined) {
-      var urlBase = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&lang=pt-br&units=metric`;
+      console.log(city.value)
+      var urlBase = `http://localhost:3000/req`;
       boxLoad.style.display = "block";
-      fetch(urlBase)
+      fetch(urlBase, {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        }, 
+          body:JSON.stringify({city:city.value})
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
